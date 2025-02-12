@@ -18,6 +18,8 @@ const isEven = a => {
     }
 }
 
+// testing
+
 console.log(arrayAverage(arr));
 isEven(5);
 isEven(102);
