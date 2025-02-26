@@ -37,4 +37,4 @@ function doubleAndReturnArgs (arr1, ...args){
    }));
 };
 
-doubleAndReturnArgs([2,4,65],3,3);
+doubleAndReturnArgs([2,4,65],3,3)
