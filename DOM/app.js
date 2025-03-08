@@ -20,17 +20,70 @@ let p2 = document.createElement("p");
 p2.innerText = "ME TOO!";
 div.append(p2);
 
+let btn2 = document.createElement("button");
+btn2.innerText = "Button 2";
+document.querySelector("body").append(btn2);
+
+// Form Event
+let form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  let email = document.querySelector("#email"); //normal way using id
+  let pass = this.elements[1]; //using this and element
+
+  console.log(email.value);
+  console.log(pass.value);
+  
+  console.log("Successfully submitted!!");
+});
+
+//Keyboard Event
+let inp = document.querySelector("input");
+
+inp.addEventListener("keydown", function (event) {
+  console.log("Key =", event.key, "Code = ", event.code);
+
+  if (event.key == "Enter") {
+    console.log("File saved successfully!!");
+  } else if (event.key == "Delete") {
+    console.log("File deleted successfully!!");
+  }
+  console.log("Key was pressed!");
+});
+
 //Mouse Event
 
-let btn = document.querySelector("button");
-console.dir(btn);
+let btns = document.querySelectorAll("button");
 
-function alertSystem(){
-    alert("Button was clicked");
+for (btn of btns) {
+  btn.onclick = alertSystem;
+  btn.onmouseenter = hoverSystem;
+  btn.onmouseleave = hoverSystem2;
+  console.dir(btn);
 }
 
-function hoverSystem(){
-    console.log("Button was clicked");
+for (btn of btns) {
+  btn.addEventListener("dblclick", doubleclick);
 }
-btn.onclick = alertSystem;
-btn.onmouseenter = hoverSystem;
+
+function alertSystem() {
+  alert("Button was clicked");
+}
+
+function doubleclick() {
+  alert("Double click detected!!");
+}
+
+function hoverSystem() {
+  console.log("Mouse is on the button");
+  btn.classList.add("red");
+  btn.classList.add("border", "background");
+}
+
+function hoverSystem2() {
+  console.log("Mouse leaving the button");
+  btn.classList.remove("red");
+  btn.classList.remove("border", "background");
+}
