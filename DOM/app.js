@@ -38,8 +38,12 @@ form.addEventListener("submit", function (event) {
   
   console.log("Successfully submitted!!");
 });
+form.addEventListener("input", function(){
+  console.log("input event changed!");
+})
 
-//Keyboard Event
+
+//Keyboard Event 
 let inp = document.querySelector("input");
 
 inp.addEventListener("keydown", function (event) {
